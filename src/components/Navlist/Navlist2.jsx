@@ -1,15 +1,15 @@
-import List from "../List/List";
+import List2 from "../List/List2";
 import Logo from "../Logo/Logo";
 
-function Navlist(){
-    return(
+function Navlist2(){
+
+    return (
         <div className="divw">
             <Logo />
             <nav className="w">
-                <List />
+                <List2 />
             </nav>
-        </div>
+        </div>   
     )
 }
-
-export default Navlist;
+export default Navlist2;

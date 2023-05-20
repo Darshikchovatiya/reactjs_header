@@ -17,12 +17,8 @@
   margin-left: -16px;
   margin-right: -16px;
 }
-nav{
-  display: flex;
-  align-items: center;
-}
 .logo{
-  width: 30%;
+  width: 20%;
 }
 .logo img{
   width: 100%;
@@ -32,20 +28,7 @@ nav{
   flex-grow: 1;
   background-color: aqua;
 }
-
-.ulstyle{
+.divw{
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-}
-
-.listyle{
-  padding: 10px;
-  list-style: none;
-}
-
-.astyle{
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
 }

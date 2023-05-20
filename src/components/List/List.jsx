@@ -1,22 +1,24 @@
 function List(){
 
+    let ulstyle = {display: "flex", listStyle: "none", justifyContent : "flex-end"};
+    let listyle = {padding: 10};
+    let astyle = {textDecoration: "none", color: "black", fontSize: 16};
+
     return(
-        <div className="w">
-            <ul className="ulstyle">
-                <li className="listyle">
-                    <a href="#" className="astyle">Home</a>
+            <ul style={ulstyle}>
+                <li style={listyle}>
+                    <a href="#" style={astyle}>Home</a>
                 </li>
-                <li className="listyle">
-                    <a href="#" className="astyle">About</a>
+                <li style={listyle}>
+                    <a href="#" style={astyle}>About</a>
                 </li>
-                <li className="listyle">
-                    <a href="#" className="astyle">Service</a>
+                <li style={listyle}>
+                    <a href="#" style={astyle}>Service</a>
                 </li>
-                <li className="listyle">
-                    <a href="#" className="astyle">Contact</a>
+                <li style={listyle}>
+                    <a href="#" style={astyle}>Contact</a>
                 </li>
             </ul>
-        </div>
     )
 }
 

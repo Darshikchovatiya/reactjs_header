@@ -7,12 +7,12 @@ function List2(){
     let namelist = ["Home", "About", "Service", "Contact"];
 
     return (
+
         // <ul style={ulstyle}>
         //     <Li tye={listyle} ast={astyle} name= "Home" />
         //     <Li tye={listyle} ast={astyle} name= "About"  />
         //     <Li tye={listyle} ast={astyle} name= "Service"  />
         //     <Li tye={listyle} ast={astyle} name= "Contact"  />
-
         // </ul>
 
         namelist.map((val)=>{

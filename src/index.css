@@ -16,9 +16,14 @@
   flex-wrap: wrap;
   margin-left: -16px;
   margin-right: -16px;
+  align-items: center;
+}
+.divw{
+  display: flex;
+  align-items: center;
 }
 .logo{
-  width: 20%;
+  width: 7%;
 }
 .logo img{
   width: 100%;
@@ -26,9 +31,4 @@
 
 .w{
   flex-grow: 1;
-  background-color: aqua;
-}
-.divw{
-  display: flex;
-  align-items: center;
 }

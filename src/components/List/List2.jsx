@@ -1,9 +1,9 @@
 import Li from "../Li/Li";
 
-function List2(){
-    let ulstyle = {display: "flex", listStyle: "none", justifyContent : "flex-end"};
-    let listyle = {padding: 10};
-    let astyle = {textDecoration: "none", color: "black", fontSize: 16};
+function List2() {
+    let ulstyle = { display: "flex", listStyle: "none", justifyContent: "flex-end" };
+    let listyle = { padding: 10 };
+    let astyle = { textDecoration: "none", color: "black", fontSize: 16 };
     let namelist = ["Home", "About", "Service", "Contact"];
 
     return (
@@ -15,11 +15,15 @@ function List2(){
         //     <Li tye={listyle} ast={astyle} name= "Contact"  />
         // </ul>
 
-        namelist.map((val)=>{
-            <ul style={ulstyle}>
-                <Li tye={listyle} ast={astyle} name={val}  />
-            </ul>
-        })
+        <ul style={ulstyle}>
+            {
+
+                namelist.map((val) => {
+                    return (<Li tye={listyle} ast={astyle} name={val} />)
+                })
+
+            }
+        </ul>
     )
 }
 

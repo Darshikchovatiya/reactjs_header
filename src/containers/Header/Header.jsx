@@ -1,3 +1,4 @@
+import Logo from "../../components/Logo/Logo";
 import Navlist from "../../components/Navlist/Navlist";
 
 function Header(){
@@ -6,6 +7,7 @@ function Header(){
         <header>
             <div className="container">
                 <div className="row">
+                    <Logo />
                     <Navlist />
                 </div>
             </div>

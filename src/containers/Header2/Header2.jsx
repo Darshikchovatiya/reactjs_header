@@ -14,7 +14,7 @@ function Header2(){
                     <Navlist2 />
                 </div>
             </div>
-            <Car />
+            {/* <Car /> */}
         </header>
     )
 }

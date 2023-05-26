@@ -1,16 +1,14 @@
-import Logo from "../../components/Logo/Logo";
-import Navlist from "../../components/Navlist/Navlist";
+import Container from "../../components/Container/Container";
+import Ifelse from "../../components/Container/Ifelse";
+import Hocbr from "../../components/Hoc/Hocbr";
+import Hocg from "../../components/Hoc/Hocg";
 
 function Header(){
 
     return (
         <header>
-            <div className="container">
-                <div className="row">
-                    <Logo />
-                    <Navlist />
-                </div>
-            </div>
+            <Hocg cpm={<Container/>} Ife={<Ifelse/>} />
+            <Hocbr cpm={<Container/>} />
         </header>
     )
 }

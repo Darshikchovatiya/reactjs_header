@@ -7,6 +7,6 @@ import Header2 from './containers/Header2/Header2'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Header />
-    <Header2 />
+    {/* <Header2 /> */}
   </React.StrictMode>,
 )

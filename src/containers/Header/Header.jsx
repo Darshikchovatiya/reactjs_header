@@ -1,3 +1,4 @@
+import Cards from "../../components/Cards/Cards";
 import Container from "../../components/Container/Container";
 import Ifelse from "../../components/Container/Ifelse";
 import Hocbr from "../../components/Hoc/Hocbr";
@@ -9,6 +10,8 @@ function Header(){
         <header>
             <Hocg cpm={<Container/>} Ife={<Ifelse/>} />
             <Hocbr cpm={<Container/>} />
+
+            <Cards />
         </header>
     )
 }

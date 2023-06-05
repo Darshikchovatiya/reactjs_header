@@ -32,3 +32,33 @@
 .w{
   flex-grow: 1;
 }
+
+
+/* .chnge{
+  color: var(colorN);
+} */
+
+.colorbox{
+  margin-top: 10px;
+}
+.colorbox button{
+  padding: 10px;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+}
+/* .colorbox .red{
+  background-color: red;
+}
+.colorbox .yellow{
+  background-color: yellow;
+}
+.colorbox .blue{
+  background-color: blue;
+}
+.colorbox .green{
+  background-color: green;
+}
+.colorbox .crimson{
+  background-color: crimson;
+} */

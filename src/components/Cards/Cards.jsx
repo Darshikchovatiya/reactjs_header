@@ -6,9 +6,7 @@ function Cards() {
 
   const [count, setCount] = useState(0);
   const [colorN, setColor] = useState();
-  const change ={
-    color : colorN
-  }
+  const change = {color : colorN}
 
   const dec = () =>{
     let n = count - 1;

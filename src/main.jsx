@@ -8,6 +8,7 @@ import Events from './components/Events/Events';
 import Usekey from './components/Usekey/Usekey';
 import Uncontrolled from './components/Uncontrolled/Uncontrolled';
 import Controlled from './components/Controlled/Controlled';
+import Userdetails from './components/Userdetails/Userdetails';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,7 +16,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <Header2 /> */}
     {/* <Events /> */}
     {/* <Usekey /> */}
-    <Uncontrolled />
-    <Controlled />
+    {/* <Uncontrolled /> */}
+    {/* <Controlled /> */}
+    <Userdetails />
   </React.StrictMode>,
 )

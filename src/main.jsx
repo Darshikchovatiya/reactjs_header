@@ -9,6 +9,7 @@ import Usekey from './components/Usekey/Usekey';
 import Uncontrolled from './components/Uncontrolled/Uncontrolled';
 import Controlled from './components/Controlled/Controlled';
 import Userdetails from './components/Userdetails/Userdetails';
+import DynamicForm from './components/Dynamic Form/DynamicForm';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <Usekey /> */}
     {/* <Uncontrolled /> */}
     {/* <Controlled /> */}
-    <Userdetails />
+    {/* <Userdetails /> */}
+    <DynamicForm />
   </React.StrictMode>,
 )

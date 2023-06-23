@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <Usekey /> */}
     {/* <Uncontrolled /> */}
     {/* <Controlled /> */}
-    {/* <Userdetails /> */}
-    <DynamicForm />
+    <Userdetails />
+    {/* <DynamicForm /> */}
   </React.StrictMode>,
 )

@@ -1,38 +1,57 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+const showdata = () => {
+    let view = JSON.parse(localStorage.getItem("u_data"));
+    if (view != null) {
+        return view;
+    }
+    return [];
+}
 
 function Userdetails() {
 
     const [data, setData] = useState({
-        fname : '',
-        lname : '',
-        email : '',
-        age : '',
-        city : '',
-        phone : '',
+        fname: '',
+        lname: '',
+        email: '',
+        age: '',
+        city: '',
+        phone: '',
     })
 
-    const [show, setShow] = useState(null);
+    const [show, setShow] = useState(showdata());
 
-    const handlesubmit = (e) =>{
-        e.preventDefault();
-        setShow(data);
-    }
 
-    const handleChange = (e) =>{
+    const handleChange = (e) => {
         let name = e.target.name;
         let value = e.target.value;
 
+        setData({ ...data, [name]: value })
+    }
+
+    const handlesubmit = (e) => {
+        e.preventDefault();
+        // let name = data;
+        setShow([...show, data]);
         setData({
-            ...data,
-            [name] : value
+            fname: '',
+            lname: '',
+            email: '',
+            age: '',
+            city: '',
+            phone: '',
         })
     }
 
-    console.log(show);
+
+    useEffect(() => {
+        localStorage.setItem("u_data", JSON.stringify(show));
+    }, [show])
+
     return (
         <>
             <div className="container">
-                <h1 style={{textAlign: "center"}}>User Details</h1>
+                <h1 style={{ textAlign: "center" }}>User Details</h1>
                 <form className="row g-3" onSubmit={handlesubmit}>
                     <div className="col-md-6">
                         <label className="form-label">First Name</label>
@@ -62,38 +81,46 @@ function Userdetails() {
                         <button type="submit" className="btn btn-primary">Sign in</button>
                     </div>
                 </form>
-                <div style={{marginTop: 20}}>
+                <div style={{ marginTop: 20 }}>
                     {
-                        show != null 
-                        ?
-                        <div>
-                            <h2>
-                                {
-                                    show.fname + " " + show.lname 
-                                }
-                            </h2>
-                            <h2>
-                                {
-                                    show.email
-                                }
-                            </h2>
-                            <h2>
-                                {
-                                    show.age
-                                }
-                            </h2>
-                            <h2>
-                                {
-                                    show.city
-                                }
-                            </h2>
-                            <h2>
-                                {
-                                    show.phone
-                                }
-                            </h2>
-                        </div>
-                        :""
+                        show.length >= 1 ?
+
+                            show.map((s) => {
+                                return (
+                                    <>
+                                        <div>
+                                            <h2>
+                                                {
+                                                    s.fname + " " + s.lname
+                                                }
+                                            </h2>
+                                            <h2>
+                                                {
+                                                    s.email
+                                                }
+                                            </h2>
+                                            <h2>
+                                                {
+                                                    s.age
+                                                }
+                                            </h2>
+                                            <h2>
+                                                {
+                                                    s.city
+                                                }
+                                            </h2>
+                                            <h2>
+                                                {
+                                                    s.phone
+                                                }
+                                            </h2>
+                                        </div>
+                                    </>
+
+                                )
+
+                            })
+                            : ""
                     }
                 </div>
             </div>

@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react'
 
-const showdata = () => {
-    let view = JSON.parse(localStorage.getItem("u_data"));
-    if (view != null) {
-        return view;
+// const showdata = () => {
+//     let view = JSON.parse(localStorage.getItem("u_data"));
+//     if (view != null) {
+//         return view;
+//     }
+//     return [];
+// }
+
+const show_se_data = () =>{
+    let se_view = sessionStorage.getItem("se_data");
+    if(se_view != null){
+        return JSON.parse(se_view);
     }
     return [];
+    
 }
 
 function Userdetails() {
@@ -19,8 +28,7 @@ function Userdetails() {
         phone: '',
     })
 
-    const [show, setShow] = useState(showdata());
-
+    const [show, setShow] = useState(show_se_data());
 
     const handleChange = (e) => {
         let name = e.target.name;
@@ -43,10 +51,13 @@ function Userdetails() {
         })
     }
 
+    useEffect(()=>{
+        sessionStorage.setItem("se_data",JSON.stringify(show));
+    },[show])
 
-    useEffect(() => {
-        localStorage.setItem("u_data", JSON.stringify(show));
-    }, [show])
+    // useEffect(() => {
+    //     localStorage.setItem("u_data", JSON.stringify(show));
+    // }, [show])
 
     return (
         <>

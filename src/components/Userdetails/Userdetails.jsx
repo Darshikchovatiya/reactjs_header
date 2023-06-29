@@ -1,26 +1,34 @@
 import React, { useEffect, useState } from 'react'
 
-// const showdata = () => {
-//     let view = JSON.parse(localStorage.getItem("u_data"));
-//     if (view != null) {
-//         return view;
-//     }
-//     return [];
-// }
-
-const show_se_data = () =>{
-    let se_view = sessionStorage.getItem("se_data");
-    if(se_view != null){
-        return JSON.parse(se_view);
+const showdata = () => {
+    let view = JSON.parse(localStorage.getItem("u_data"));
+    if (view != null) {
+        return view;
     }
     return [];
-    
 }
+
+const showdelete = () => {
+    let view = JSON.parse(localStorage.getItem("us_delete"));
+    if (view != null) {
+        return view;
+    }
+    return [];
+}
+
+// const show_se_data = () =>{
+//     let se_view = sessionStorage.getItem("se_data");
+//     if(se_view != null){
+//         return JSON.parse(se_view);
+//     }
+//     return [];
+
+// }
 
 function Userdetails() {
 
     const [data, setData] = useState({
-        
+
         fname: '',
         lname: '',
         email: '',
@@ -29,7 +37,11 @@ function Userdetails() {
         phone: '',
     })
 
-    const [show, setShow] = useState(show_se_data());
+    const [show, setShow] = useState(showdata());
+    const [updateData, setUpdateData] = useState(false);
+    const [indexD, setIndexD] = useState(null);
+    const [u_delete, setU_delete] = useState(showdelete());
+
 
     const handleChange = (e) => {
         let name = e.target.name;
@@ -40,8 +52,20 @@ function Userdetails() {
 
     const handlesubmit = (e) => {
         e.preventDefault();
-        // let name = data;
-        setShow([...show, data]);
+
+        if (updateData) {
+            let newup = [...show];
+            newup[indexD] = data;
+
+            setShow(newup);
+            setUpdateData(false);
+        }
+        else {
+            let uid = Math.floor(Math.random() * 1000);
+            let name = ({ id: uid, ...data });
+            // console.log("name",name);
+            setShow([...show, name]);
+        }
         setData({
             fname: '',
             lname: '',
@@ -49,16 +73,50 @@ function Userdetails() {
             age: '',
             city: '',
             phone: '',
-        })
+        });
     }
 
-    useEffect(()=>{
-        sessionStorage.setItem("se_data",JSON.stringify(show));
-    },[show])
+    const handleUpdate = (id, index) => {
+        // console.log("clicjd",id);
+        let m_data = showdata();
+        // console.log("m_data",m_data);
+        let single_data = m_data.filter((sd) => {
+            // console.log("sd",sd);
+            return sd.id == id;
+        })
+        console.log("single_data", single_data);
+        setData(single_data[0]);
+        setUpdateData(true);
+        setIndexD(index);
+    }
 
-    // useEffect(() => {
-    //     localStorage.setItem("u_data", JSON.stringify(show));
-    // }, [show])
+    const handleDelete = (id) => {
+        let m_data = showdata();
+
+        let d_delete = m_data.filter((de) => {
+            if (de.id == id) {
+                setU_delete([...u_delete, de]);
+            }
+            else {
+
+                return de.id != id;
+            }
+        })
+        setShow(d_delete);
+    }
+
+        // useEffect(()=>{
+        //     sessionStorage.setItem("se_data",JSON.stringify(show));
+        // },[show])
+
+        useEffect(() => {
+            localStorage.setItem("u_data", JSON.stringify(show));
+            // console.log("use effect");
+        }, [show])
+
+    useEffect(() => {
+        localStorage.setItem("us_delete", JSON.stringify(u_delete));
+    }, [u_delete])
 
     return (
         <>
@@ -90,17 +148,16 @@ function Userdetails() {
                         <input type="number" className="form-control" name='phone' value={data.phone} onChange={handleChange} />
                     </div>
                     <div className="col-12">
-                        <button type="submit" className="btn btn-primary">Sign in</button>
+                        <button type="submit" className="btn btn-primary">Submit</button>
                     </div>
                 </form>
-                <div style={{ marginTop: 20 }}>
+                <div className='u_cards'>
                     {
                         show.length >= 1 ?
-
-                            show.map((s) => {
+                            show.map((s, index) => {
                                 return (
                                     <>
-                                        <div>
+                                        <div className='u_card'>
                                             <h2>
                                                 {
                                                     s.fname + " " + s.lname
@@ -113,7 +170,7 @@ function Userdetails() {
                                             </h2>
                                             <h2>
                                                 {
-                                                    s.age
+                                                    "Age : " + s.age
                                                 }
                                             </h2>
                                             <h2>
@@ -126,6 +183,10 @@ function Userdetails() {
                                                     s.phone
                                                 }
                                             </h2>
+                                            <div>
+                                                <button className='btn btn-warning me-3' onClick={(e) => { handleUpdate(s.id, index) }}>Update</button>
+                                                <button className='btn btn-danger' onClick={(e) => { handleDelete(s.id) }}>Delete</button>
+                                            </div>
                                         </div>
                                     </>
 

@@ -1,35 +1,39 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.container{
+.container {
   width: 1140px;
   /* background-color: orange; */
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
 }
-.row{
+
+.row {
   display: flex;
   flex-wrap: wrap;
   margin-left: -16px;
   margin-right: -16px;
   align-items: center;
 }
-.divw{
+
+.divw {
   display: flex;
   align-items: center;
 }
-.logo{
+
+.logo {
   width: 7%;
 }
-.logo img{
+
+.logo img {
   width: 100%;
 }
 
-.w{
+.w {
   flex-grow: 1;
 }
 
@@ -38,15 +42,17 @@
   color: var(colorN);
 } */
 
-.colorbox{
+.colorbox {
   margin-top: 10px;
 }
-.colorbox button{
+
+.colorbox button {
   padding: 10px;
   border: none;
   outline: none;
   margin-left: 10px;
 }
+
 /* .colorbox .red{
   background-color: red;
 }
@@ -62,3 +68,25 @@
 .colorbox .crimson{
   background-color: crimson;
 } */
+
+
+
+
+
+
+
+
+
+.u_cards{
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.u_card {
+  width: 30%;
+  height: 20%;
+  box-shadow: 0 0  3px rgb(173, 173, 173);
+  padding: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}

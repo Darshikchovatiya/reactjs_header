@@ -20,6 +20,7 @@ const show_se_data = () =>{
 function Userdetails() {
 
     const [data, setData] = useState({
+        
         fname: '',
         lname: '',
         email: '',
